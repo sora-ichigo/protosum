@@ -1,3 +1,3 @@
-package protosum
+package proto
 
 type User interface{}
