@@ -1,4 +1,4 @@
-module proto
+module github.com/igsr5/protosum
 
 go 1.17
 
