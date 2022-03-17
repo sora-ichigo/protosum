@@ -5,7 +5,7 @@ require "protosum/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "protosum"
-  spec.version       = Protosum::VERSION
+  spec.version       = "0.2.0"
   spec.authors       = ["igsr5"]
   spec.email         = ["i@gsr5.dev"]
 

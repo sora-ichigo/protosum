@@ -1,5 +1,4 @@
-require "protosum/version"
-require "protosum/constants"
+require "proto/version"
 
 Dir.glob("#{__dir__}/**/*_pb.rb").each {|file| require file}
 
