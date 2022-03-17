@@ -5,7 +5,7 @@ require "protosum/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "protosum"
-  spec.version       = "0.2.0"
+  spec.version       = "0.3.0"
   spec.authors       = ["igsr5"]
   spec.email         = ["i@gsr5.dev"]
 
@@ -37,4 +37,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.17"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_dependency "google-protobuf", "~> 3.14"
+  spec.add_dependency "grpc", "~> 1.28"
+  spec.add_development_dependency "grpc-tools", "~> 1.27"
+  spec.add_development_dependency "bump", "~> 0.10.0"
 end

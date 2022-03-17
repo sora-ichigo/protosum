@@ -1,12 +1,22 @@
 PATH
   remote: .
   specs:
-    protosum (0.1.0)
+    protosum (0.3.0)
+      google-protobuf (~> 3.14)
+      grpc (~> 1.28)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    bump (0.10.0)
     diff-lcs (1.5.0)
+    google-protobuf (3.19.4)
+    googleapis-common-protos-types (1.3.0)
+      google-protobuf (~> 3.14)
+    grpc (1.43.1)
+      google-protobuf (~> 3.18)
+      googleapis-common-protos-types (~> 1.0)
+    grpc-tools (1.43.1)
     rake (10.5.0)
     rspec (3.11.0)
       rspec-core (~> 3.11.0)
@@ -26,7 +36,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bump (~> 0.10.0)
   bundler (~> 1.17)
+  grpc-tools (~> 1.27)
   protosum!
   rake (~> 10.0)
   rspec (~> 3.0)
