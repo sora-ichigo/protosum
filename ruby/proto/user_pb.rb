@@ -11,6 +11,8 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
 end
 
-module UserPb
-  User = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("userpb.User").msgclass
+module Protosum
+  module UserPb
+    User = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("userpb.User").msgclass
+  end
 end
