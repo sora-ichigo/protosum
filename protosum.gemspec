@@ -1,11 +1,11 @@
 
-lib = File.expand_path("../lib", __FILE__)
+lib = File.expand_path("../ruby", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "protosum/version"
+require "proto/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "protosum"
-  spec.version       = "0.3.0"
+  spec.version       = Protosum::VERSION
   spec.authors       = ["igsr5"]
   spec.email         = ["i@gsr5.dev"]
 
@@ -33,6 +33,7 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["ruby"]
+  spec.files = ["ruby"]
 
   spec.add_development_dependency "bundler", "~> 1.17"
   spec.add_development_dependency "rake", "~> 10.0"

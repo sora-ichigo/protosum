@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    protosum (0.3.0)
+    protosum (0.4.0)
       google-protobuf (~> 3.14)
       grpc (~> 1.28)
 
