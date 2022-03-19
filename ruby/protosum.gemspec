@@ -1,5 +1,5 @@
 
-lib = File.expand_path("../ruby", __FILE__)
+lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "proto/version"
 
@@ -32,8 +32,8 @@ Gem::Specification.new do |spec|
   end
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["ruby"]
-  spec.files = ["ruby"]
+  spec.require_paths = ["lib"]
+  spec.files = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.17"
   spec.add_development_dependency "rake", "~> 10.0"
