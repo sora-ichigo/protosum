@@ -7,6 +7,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("proto/user.proto", :syntax => :proto3) do
     add_message "userpb.User" do
       optional :name, :string, 1
+      optional :age, :int64, 2
     end
   end
 end

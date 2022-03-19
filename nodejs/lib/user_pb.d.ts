@@ -9,6 +9,8 @@ import * as jspb from "google-protobuf";
 export class User extends jspb.Message { 
     getName(): string;
     setName(value: string): User;
+    getAge(): number;
+    setAge(value: number): User;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): User.AsObject;
@@ -23,5 +25,6 @@ export class User extends jspb.Message {
 export namespace User {
     export type AsObject = {
         name: string,
+        age: number,
     }
 }
