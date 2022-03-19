@@ -1,0 +1,28 @@
+{
+  "name": "protosum",
+  "version": "1.0.0",
+  "description": "Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/protosum`. To experiment with that code, run `bin/console` for an interactive prompt.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igsr5/protosum.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/igsr5/protosum/issues"
+  },
+  "homepage": "https://github.com/igsr5/protosum#readme",
+  "devDependencies": {
+    "grpc_tools_node_protoc_ts": "^5.3.2",
+    "grpc-tools": "^1.11.2"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.5.9",
+    "google-protobuf": "^3.20.0-rc.2"
+  }
+}
