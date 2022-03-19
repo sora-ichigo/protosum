@@ -1,0 +1,23 @@
+{
+  "name": "protosum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igsr5/protosum.git"
+  },
+  "keywords": [
+    "protosum",
+    "protobuf"
+  ],
+  "author": "igsr5 <i@gsr5.com> (https://igsr5.dev/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/igsr5/protosum/issues"
+  },
+  "homepage": "https://github.com/igsr5/protosum#readme"
+}
