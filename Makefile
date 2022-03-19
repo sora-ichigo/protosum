@@ -9,5 +9,5 @@ publish:
 	# publish gem(ruby)
 	cd ruby && rake release && cd ..
 	# publish npm(nodejs)
-	cd nodejs npm publish && cd ..
+	cd nodejs npm publish ./ && cd ..
 
