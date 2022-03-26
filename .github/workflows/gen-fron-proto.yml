@@ -1,0 +1,16 @@
+name: Generate code from proto
+
+on:
+  pull_request:
+
+jobs:
+  gen-from-proto:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - name: generate code from proto
+        run: make protogen
