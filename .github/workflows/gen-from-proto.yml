@@ -12,5 +12,8 @@ jobs:
         with:
           node-version: '16'
           cache: 'npm'
+      - name: install dependencies
+        run:
+          | sudo apt update && sudo apt install protobuf-compiler
       - name: generate code from proto
         run: make protogen
