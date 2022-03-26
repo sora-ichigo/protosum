@@ -18,7 +18,7 @@ jobs:
       - name: install dependencies
         run: |
           sudo apt-get update && sudo apt-get install protobuf-compiler &&
-          go get google.golang.org/protobuf/cmd/protoc-gen-go &&
+          go install google.golang.org/protobuf/cmd/protoc-gen-go &&
           npm install grpc-tools grpc_tools_node_protoc_ts -D &&
           npm install @grpc/grpc-js google-protobuf
       - name: generate code from proto
