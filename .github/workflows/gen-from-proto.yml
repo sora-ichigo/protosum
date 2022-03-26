@@ -17,7 +17,7 @@ jobs:
           go-version: '^1.18.0'
       - name: install dependencies
         run: |
-          sudo apt-get update && sudo apt-get install protobuf-compiler &&
+          sudo apt-get update && sudo apt-get install -y protobuf-compiler=3.6.1.3 &&
           go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.0 &&
           npm install grpc-tools grpc_tools_node_protoc_ts -D &&
           npm install @grpc/grpc-js google-protobuf
@@ -27,7 +27,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: 'run `make protogen`'
-          branch: gen-impl-from-${{ steps.latest.outputs.version }}
+          branch: gen-impl-from-${{GITHUB_HEAD_REF}}
           base: 'master'
           delete-branch: true
-          title: 'DO NOT EDIT: each language implementation'
+          title: 'DO NOT EDIT: generate each language implementation'
