@@ -27,7 +27,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: 'run `make protogen`'
-          branch: gen-impl-from-${{GITHUB_HEAD_REF}}
+          branch: gen-impl-from-${GITHUB_REF##*/}
           base: 'master'
           delete-branch: true
           title: 'DO NOT EDIT: generate each language implementation'
