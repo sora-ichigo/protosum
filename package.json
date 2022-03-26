@@ -22,7 +22,7 @@
     "grpc-tools": "^1.11.2"
   },
   "dependencies": {
-    "@grpc/grpc-js": "^1.5.9",
+    "@grpc/grpc-js": "^1.5.10",
     "google-protobuf": "^3.20.0-rc.2"
   }
 }
