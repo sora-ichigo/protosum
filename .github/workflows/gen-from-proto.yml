@@ -26,7 +26,8 @@ jobs:
       - name: create pr of generate code
         uses: peter-evans/create-pull-request@v3
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'run `make protogen`'
-          branch: test
+          branch: gen-impl-from-${{ steps.latest.outputs.version }}
           delete-branch: true
           title: 'DO NOT EDIT: each language implementation'
