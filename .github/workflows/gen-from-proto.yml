@@ -21,9 +21,11 @@ jobs:
           go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.0 &&
           npm install grpc-tools grpc_tools_node_protoc_ts -D &&
           npm install @grpc/grpc-js google-protobuf
-      - name: generate code from proto
         run: make protogen
-      - name: create pr of each language implementation
-        run: gh pr create -B "master" -t "DO NOT EDIT: each language implementation" -b ""
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: generate code from proto
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: 'run `make protogen`'
+          branch: test
+          delete-branch: true
+          title: 'DO NOT EDIT: each language implementation'
