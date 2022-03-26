@@ -7,7 +7,7 @@ jobs:
   gen-from-proto:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
@@ -25,10 +25,15 @@ jobs:
       - name: generate code from proto
         run: make protogen
       - name: create pr of generate code
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v4
         with:
           commit-message: 'run `make protogen`'
           branch: gen-impl-from-${{github.head_ref}}
           base: 'master'
           delete-branch: true
           title: 'DO NOT EDIT: generate each language implementation'
+      - name: Check outputs
+        if: ${{ steps.cpr.outputs.pull-request-number }}
+        run: |
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
