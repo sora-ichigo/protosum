@@ -3,7 +3,6 @@ name: Generate code from proto
 on:
   #pull_request:
   push:
-    - master
 
 jobs:
   gen-from-proto:
@@ -38,22 +37,24 @@ jobs:
           title: 'DO NOT EDIT: generate each language implementation'
       - name: check generate pr
         run: echo ${{steps.cpr.outputs.pull-request-url}}
-          # - name: make pr comment body
-          #   id: pr-comment-body
-          #   run: |
-          #     if [ -n "${{steps.cpr.outputs.pull-request-url}}" ]; then
-          #       text="created PR of implementation from proto. URL: ${{ steps.cpr.outputs.pull-request-url }}"
-          #     else
-          #       text="not created PR of implementation from proto."
-          #     fi
-          #     echo "::set-output name=message_body::$text"
-          # - name: "PR comment on Updating CFn Change Set"
-          #   uses: marocchino/sticky-pull-request-comment@v1
-          #   with:
-          #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          #     header: header-of-comment
-          #     message: ${{ steps.pr-comment-body.outputs.message_body }}
-          # - name: PR merge
-          #   if: github.event.pull_request.merged == 'true'
-          #   run: echo "test"
+      - name: make pr comment body
+        id: pr-comment-body
+        if: {{ github.event.pull_request }}
+        run: |
+          if [ -n "${{steps.cpr.outputs.pull-request-url}}" ]; then
+            text="created PR of implementation from proto. URL: ${{ steps.cpr.outputs.pull-request-url }}"
+          else
+            text="not created PR of implementation from proto."
+          fi
+          echo "::set-output name=message_body::$text"
+      - name: "PR comment on Updating CFn Change Set"
+        uses: marocchino/sticky-pull-request-comment@v1
+        if: {{ github.event.pull_request }}
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          header: header-of-comment
+          message: ${{ steps.pr-comment-body.outputs.message_body }}
+      - name: PR merge
+        if: github.event.pull_request.merged == 'true'
+        run: echo "test"
 
