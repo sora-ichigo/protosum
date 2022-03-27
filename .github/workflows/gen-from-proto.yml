@@ -62,3 +62,4 @@ jobs:
       - name: PR merge
         if: github.event.pull_request.merged == 'true'
         run: echo "test"
+
