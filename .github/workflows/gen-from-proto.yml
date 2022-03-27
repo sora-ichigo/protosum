@@ -3,6 +3,7 @@ name: Generate code from proto
 on:
   #pull_request:
   push:
+    - master
 
 jobs:
   gen-from-proto:
