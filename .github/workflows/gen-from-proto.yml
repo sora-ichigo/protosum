@@ -1,8 +1,9 @@
 name: Generate code from proto
 
 on:
-  #pull_request:
+  pull_request:
   push:
+    - master
 
 jobs:
   gen-from-proto:
@@ -55,6 +56,6 @@ jobs:
           header: header-of-comment
           message: ${{ steps.pr-comment-body.outputs.message_body }}
       - name: PR merge
-        if: github.event.pull_request.merged == 'true'
-        run: echo "test"
+        if: ${{ github.event.push }}
+        run: echo "push"
 
