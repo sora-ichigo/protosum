@@ -7,5 +7,6 @@ option ruby_package = "Proto::UserPb";
 
 message User {
   string name = 1;
-  int64  age  = 2;
+  string type = 2;
+  int64  age  = 3;
 }
