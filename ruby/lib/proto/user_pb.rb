@@ -7,6 +7,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "userpb.User" do
     optional :name, :string, 1
     optional :age, :int64, 2
+    optional :type, :int64, 3
   end
 end
 
