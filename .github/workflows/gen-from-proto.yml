@@ -39,7 +39,7 @@ jobs:
         run: echo ${{steps.cpr.outputs.pull-request-url}}
       - name: make pr comment body
         id: pr-comment-body
-        if: false == ${{ github.event.pull_request.merged }}
+        if: ${{ github.event.pull_request.merged }} == false
         run: |
           if [ -n "${{steps.cpr.outputs.pull-request-url}}" ]; then
             text="created PR of implementation from proto. URL: ${{ steps.cpr.outputs.pull-request-url }}"
@@ -49,7 +49,7 @@ jobs:
           echo "::set-output name=message_body::$text"
       - name: "PR comment on Updating CFn Change Set"
         uses: marocchino/sticky-pull-request-comment@v1
-        if: false == ${{ github.event.pull_request.merged }}
+        if: ${{ github.event.pull_request.merged }} == false
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           header: header-of-comment
@@ -57,4 +57,6 @@ jobs:
       - name: PR merge
         if: ${{ github.event.pull_request.merged }}
         run: echo "merged"
-
+      - name: PR close
+        if: ${{ github.event.action == 'closed' && github.event.pull_request.merged == false }}
+        run: echo "closed"
