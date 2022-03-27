@@ -49,7 +49,11 @@ jobs:
       - name: Escape newline characters　by URL encoding
         id: multiline
         run: |
-          text="testtest"
+          if [-n "${steps.cpr.outputs.pull-request-url}"]; then
+            text="created PR of implementation from proto. URL: ${{ steps.cpr.outputs.pull-request-url }}"
+          else
+            text="not created PR of implementation from proto."
+          fi
           echo "::set-output name=message_body::$text"
 
       - name: "PR comment on Updating CFn Change Set"
