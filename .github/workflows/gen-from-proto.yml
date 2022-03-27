@@ -2,6 +2,7 @@ name: Generate code from proto
 
 on:
   pull_request:
+    types: [opened, synchronize, closed]
 
 jobs:
   gen-from-proto:
@@ -39,3 +40,6 @@ jobs:
         with:
           message: 'created PR of implementation from proto. URL: ${{ steps.cpr.outputs.pull-request-url }}'
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: PR merge
+        if: if: github.event.pull_request.merged == 'true'
+        run: echo "test"
