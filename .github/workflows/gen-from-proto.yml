@@ -46,7 +46,6 @@ jobs:
         with:
           message: 'not created PR of implementation from proto.'
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
       - name: PR merge
         if: github.event.pull_request.merged == 'true'
         run: echo "test"
