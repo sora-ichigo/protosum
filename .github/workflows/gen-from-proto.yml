@@ -46,18 +46,36 @@ jobs:
             #   with:
             #     message: 'not created PR of implementation from proto.'
             #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - name: "Make PR comment body"
-        id: make-pr-comment
-        run: | 
-          now=$(date "+%s")
-          pr-comment-body="It's ${now}"
-          echo "::set-output name=result::${{pr-comment-body}}"
+      - name: Generate front_matter and back_matter
+        run: |
+          echo "# Comment by GitHub Actions
+          <pre><details>
+          <summary> post_comment_to_pr.yml </summary>
+          <code>" > front_matter
+          
+          echo "</code></details></pre>" > back_matter
+
+      - name: No escape text
+        id: no_escape
+        run: |
+          text=`cat front_matter .github/workflows/post_comment_to_pr.yml back_matter`
+          echo "::set-output name=message_body::$text"
+
+      - name: Escape newline characters　by URL encoding
+        id: multiline
+        run: |
+          text=`cat front_matter .github/workflows/post_comment_to_pr.yml back_matter`
+          text="${text//'%'/'%25'}"
+          text="${text//$'\n'/'%0A'}"
+          text="${text//$'\r'/'%0D'}" 
+          echo "::set-output name=message_body::$text"
+
       - name: "PR comment on Updating CFn Change Set"
         uses: marocchino/sticky-pull-request-comment@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           header: header-of-comment
-          message: ${{ steps.make-pr-comment.outputs.result }}
+          message: ${{ steps.multiline.outputs.message_body }}
       - name: PR merge
         if: github.event.pull_request.merged == 'true'
         run: echo "test"
