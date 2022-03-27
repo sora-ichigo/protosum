@@ -49,8 +49,8 @@ jobs:
       - name: "Make PR comment body"
         id: make-pr-comment
         run: | 
-          now=$(date "+%s")
-          pr-comment-body="It's ${now}" 
+          now=$(date "+%s") &&
+          pr-comment-body="It's ${now}" &&
           echo ::set-output name=result::${pr-comment-body}
       - name: "PR comment on Updating CFn Change Set"
         uses: marocchino/sticky-pull-request-comment@v1
