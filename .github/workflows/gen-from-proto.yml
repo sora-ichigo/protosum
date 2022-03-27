@@ -49,7 +49,7 @@ jobs:
       - name: Escape newline characters　by URL encoding
         id: multiline
         run: |
-          if [-n "${steps.cpr.outputs.pull-request-url}"]; then
+          if [ -n "${steps.cpr.outputs.pull-request-url}" ]; then
             text="created PR of implementation from proto. URL: ${{ steps.cpr.outputs.pull-request-url }}"
           else
             text="not created PR of implementation from proto."
