@@ -70,7 +70,7 @@ proto.userpb.User.prototype.toObject = function(opt_includeInstance) {
 proto.userpb.User.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    age: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    age: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -111,7 +111,7 @@ proto.userpb.User.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
       break;
-    case 2:
+    case 3:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setAge(value);
       break;
@@ -154,7 +154,7 @@ proto.userpb.User.serializeBinaryToWriter = function(message, writer) {
   f = message.getAge();
   if (f !== 0) {
     writer.writeInt64(
-      2,
+      3,
       f
     );
   }
@@ -180,11 +180,11 @@ proto.userpb.User.prototype.setName = function(value) {
 
 
 /**
- * optional int64 age = 2;
+ * optional int64 age = 3;
  * @return {number}
  */
 proto.userpb.User.prototype.getAge = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
@@ -193,7 +193,7 @@ proto.userpb.User.prototype.getAge = function() {
  * @return {!proto.userpb.User} returns this
  */
 proto.userpb.User.prototype.setAge = function(value) {
-  return jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
