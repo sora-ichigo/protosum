@@ -11,6 +11,8 @@ export class User extends jspb.Message {
     setName(value: string): User;
     getAge(): number;
     setAge(value: number): User;
+    getType(): number;
+    setType(value: number): User;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): User.AsObject;
@@ -26,5 +28,6 @@ export namespace User {
     export type AsObject = {
         name: string,
         age: number,
+        type: number,
     }
 }
