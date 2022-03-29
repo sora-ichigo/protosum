@@ -47,16 +47,20 @@ jobs:
             text="not created PR of implementation from proto."
           fi
           echo "::set-output name=message_body::$text"
-      - name: "PR comment on Updating CFn Change Set"
+      - name: PR comment on Updating CFn Change Set
         uses: marocchino/sticky-pull-request-comment@v1
         if: ${{ github.event.pull_request.merged }} == false
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           header: header-of-comment
           message: ${{ steps.pr-comment-body.outputs.message_body }}
-      - name: PR merge
+      - name: generated PR merge
         if: ${{ github.event.pull_request.merged }}
-        run: echo "merged"
-      - name: PR close
+        run: gh pr merge ${{ steps.cpr.outputs.pull-request-number }} -m -d
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: generated PR close
         if: ${{ github.event.action == 'closed' && github.event.pull_request.merged == false }}
-        run: echo "closed"
+        run: gh pr close ${{ steps.cpr.outputs.pull-request-number }} -d
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
