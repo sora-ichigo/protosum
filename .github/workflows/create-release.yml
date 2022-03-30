@@ -1,9 +1,12 @@
 name: auto release demo
 on:
   push:
-    # mainブランチにコミットがpushされたときに限定
     branches:
-      - master
+      - 'master'
+    path:
+      - 'nodejs'
+      - 'go'
+      - 'ruby'
 jobs:
   auto-release:
     runs-on: ubuntu-latest
