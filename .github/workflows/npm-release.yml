@@ -17,6 +17,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: cd nodejs
         run: cd ./nodejs
+      - run: cat ${{toJSON(github.event.release)}}
       - name: update package.json
         run: |
           cat package.json | (rm package.json;sed -e 's/"version": ".*"/"version": "${{github.event.release.tagName}}"/'>package.json)
