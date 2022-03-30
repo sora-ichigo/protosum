@@ -1,6 +1,6 @@
 {
-  "name": "protosum-npm",
-  "version": "0.7.0",
+  "name": "protosum",
+  "version": "0.6.0",
   "description": "Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/protosum`. To experiment with that code, run `bin/console` for an interactive prompt.",
   "main": "index.js",
   "scripts": {
@@ -22,21 +22,10 @@
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
     "grpc_tools_node_protoc_ts": "^5.3.2",
-    "grpc-tools": "^1.11.2",
-    "semantic-release": "^19.0.2"
+    "grpc-tools": "^1.11.2"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.5.10",
     "google-protobuf": "^3.20.0-rc.2"
-  },
-  "release": {
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/github",
-      "@semantic-release/git"
-    ]
   }
 }
