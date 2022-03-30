@@ -70,8 +70,9 @@ proto.userpb.User.prototype.toObject = function(opt_includeInstance) {
 proto.userpb.User.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    age: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    type: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    email: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    age: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    type: jspb.Message.getFieldWithDefault(msg, 4, 0)
   };
 
   if (includeInstance) {
@@ -113,10 +114,14 @@ proto.userpb.User.deserializeBinaryFromReader = function(msg, reader) {
       msg.setName(value);
       break;
     case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setEmail(value);
+      break;
+    case 3:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setAge(value);
       break;
-    case 3:
+    case 4:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setType(value);
       break;
@@ -156,17 +161,24 @@ proto.userpb.User.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getEmail();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
   f = message.getAge();
   if (f !== 0) {
     writer.writeInt64(
-      2,
+      3,
       f
     );
   }
   f = message.getType();
   if (f !== 0) {
     writer.writeInt64(
-      3,
+      4,
       f
     );
   }
@@ -192,28 +204,28 @@ proto.userpb.User.prototype.setName = function(value) {
 
 
 /**
- * optional int64 age = 2;
+ * optional string email = 2;
+ * @return {string}
+ */
+proto.userpb.User.prototype.getEmail = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.userpb.User} returns this
+ */
+proto.userpb.User.prototype.setEmail = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional int64 age = 3;
  * @return {number}
  */
 proto.userpb.User.prototype.getAge = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.userpb.User} returns this
- */
-proto.userpb.User.prototype.setAge = function(value) {
-  return jspb.Message.setProto3IntField(this, 2, value);
-};
-
-
-/**
- * optional int64 type = 3;
- * @return {number}
- */
-proto.userpb.User.prototype.getType = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
@@ -222,8 +234,26 @@ proto.userpb.User.prototype.getType = function() {
  * @param {number} value
  * @return {!proto.userpb.User} returns this
  */
-proto.userpb.User.prototype.setType = function(value) {
+proto.userpb.User.prototype.setAge = function(value) {
   return jspb.Message.setProto3IntField(this, 3, value);
+};
+
+
+/**
+ * optional int64 type = 4;
+ * @return {number}
+ */
+proto.userpb.User.prototype.getType = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.userpb.User} returns this
+ */
+proto.userpb.User.prototype.setType = function(value) {
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
