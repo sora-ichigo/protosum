@@ -16,7 +16,8 @@ jobs:
           node-version: '16'
           registry-url: 'https://registry.npmjs.org'
       - name: update package.json
-        run: sed -i "" -e 's/"version": ".*"/"version": "0.7.0"/' package.json
+        run: |
+          sed -i "" -e 's/"version": ".*"/"version": "0.7.0"/' package.json
       - name: npm install
         run: npm install
       - name: test
