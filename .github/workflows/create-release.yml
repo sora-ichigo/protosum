@@ -4,9 +4,9 @@ on:
     branches:
       - 'master'
     paths:
-      - '/nodejs'
-      - '/go'
-      - '/ruby'
+      - 'nodejs/**'
+      - 'go/**'
+      - 'ruby/**'
 jobs:
   auto-release:
     runs-on: ubuntu-latest
