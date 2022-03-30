@@ -15,15 +15,13 @@ jobs:
         with:
           node-version: '16'
           registry-url: 'https://registry.npmjs.org'
+      - name: cd nodejs
+        run: cd ./nodejs
       - name: update package.json
         run: |
           cat package.json | (rm package.json;sed -e 's/"version": ".*"/"version": "0.8.0"/'>package.json)
       - name: npm install
         run: npm install
-      - name: test
-        run: npm run test
-      - name: build
-        run: npm run build
       - name: release
         run: npm publish
         env:
