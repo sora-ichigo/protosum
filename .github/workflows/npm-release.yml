@@ -1,8 +1,8 @@
 name: npm release
 on:
   push:
-    release:
-      types: [published]
+    #release:
+    #types: [published]
 jobs:
   release:
     name: check version, add tag and release
@@ -15,16 +15,10 @@ jobs:
         with:
           node-version: '16'
           registry-url: 'https://registry.npmjs.org'
-      - name: install can-npm-publish and dependencies
-        run: |
-          npm install can-npm-publish
-          npm ci
-      - name: check version and add tag
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          REPO: ${{github.repository}}
-          COMMIT: ${{github.sha}}
-        run: ./release.sh
+      - name: update package.json
+        run: sed -i '' -e 's/"version": ".*"/"version": "0.7.0"/' package.json
+      - name: npm install
+        run: npm install
       - name: test
         run: npm run test
       - name: build
