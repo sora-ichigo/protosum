@@ -7,6 +7,9 @@ jobs:
   release:
     name: check version, add tag and release
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ruby
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -23,12 +26,10 @@ jobs:
           chmod 600 $HOME/.gem/credentials
           echo "---" >$HOME/.gem/credentials
           echo ":rubygems_api_key: ${RUBYGEMS_API_KEY}" >> $HOME/.gem/credentials
-      - name: cd gem
-        run: cd ./ruby
       - name: update version.rb
         run: |
-          ls &&
-          cat ./lib/proto/version.rb | (rm ./lib/proto/version.rb;sed -e 's/VERSION = ".*"/VERSION = "${{github.event.release.tag_name}}"/'>./lib/proto/version.rb)
+          cat lib/proto/version.rb | (rm lib/proto/version.rb;sed -e 's/VERSION = ".*"/VERSION = "${{github.event.release.tag_name}}"/'>lib/proto/version.rb)
+        working-directory: ./ruby
       - name: gem build
         run: gem build *.gemspec
       - name: gem push
