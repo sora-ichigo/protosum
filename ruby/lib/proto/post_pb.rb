@@ -6,9 +6,9 @@ require 'google/protobuf'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "postpb.Post" do
     optional :name, :string, 1
-    optional :email, :string, 2
-    optional :age, :int64, 3
-    optional :type, :int64, 4
+    optional :type, :int64, 2
+    optional :user_name, :int64, 3
+    optional :title, :string, 4
   end
 end
 
