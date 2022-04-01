@@ -27,7 +27,8 @@ jobs:
         run: cd ./ruby
       - name: update version.rb
         run: |
-          cat lib/proto/version.rb | (rm lib/proto/version.rb;sed -e 's/VERSION = ".*"/VERSION = "${{github.event.release.tag_name}}"/'>lib/proto/version.rb)
+          ls &&
+          cat ./lib/proto/version.rb | (rm ./lib/proto/version.rb;sed -e 's/VERSION = ".*"/VERSION = "${{github.event.release.tag_name}}"/'>./lib/proto/version.rb)
       - name: gem build
         run: gem build *.gemspec
       - name: gem push
