@@ -10,4 +10,5 @@ message Post {
   int64  type   = 2;
   int64  user_name   = 3;
   string title  = 4;
+  string description  = 5;
 }
