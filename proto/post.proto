@@ -8,4 +8,5 @@ option ruby_package = "Proto::PostPb";
 message Post {
   string name  = 1;
   int64  type   = 2;
+  int64  user_name   = 3;
 }
