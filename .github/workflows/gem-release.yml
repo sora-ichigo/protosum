@@ -12,8 +12,8 @@ jobs:
         uses: actions/checkout@v3
       - uses: ruby/setup-ruby@v1
         with:
-        ruby-version: 3.0
-        bundler-cache: true 
+          ruby-version: 3.0
+          bundler-cache: true 
       - name: Create ~/.gem/credentials
         env:
           RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
