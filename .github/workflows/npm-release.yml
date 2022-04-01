@@ -38,4 +38,7 @@ jobs:
           branch-suffix: 'timestamp'
           delete-branch: true
           title: 'Release npm package'
-
+      - name: generated PR merge
+        run: gh pr merge ${{ steps.cpr.outputs.pull-request-number }} -m -d
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
