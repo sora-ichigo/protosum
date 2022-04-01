@@ -70,9 +70,9 @@ proto.postpb.Post.prototype.toObject = function(opt_includeInstance) {
 proto.postpb.Post.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    email: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    age: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    type: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    type: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    userName: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    title: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -114,16 +114,16 @@ proto.postpb.Post.deserializeBinaryFromReader = function(msg, reader) {
       msg.setName(value);
       break;
     case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setEmail(value);
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setType(value);
       break;
     case 3:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setAge(value);
+      msg.setUserName(value);
       break;
     case 4:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setType(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTitle(value);
       break;
     default:
       reader.skipField();
@@ -161,23 +161,23 @@ proto.postpb.Post.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getEmail();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getType();
+  if (f !== 0) {
+    writer.writeInt64(
       2,
       f
     );
   }
-  f = message.getAge();
+  f = message.getUserName();
   if (f !== 0) {
     writer.writeInt64(
       3,
       f
     );
   }
-  f = message.getType();
-  if (f !== 0) {
-    writer.writeInt64(
+  f = message.getTitle();
+  if (f.length > 0) {
+    writer.writeString(
       4,
       f
     );
@@ -204,47 +204,11 @@ proto.postpb.Post.prototype.setName = function(value) {
 
 
 /**
- * optional string email = 2;
- * @return {string}
- */
-proto.postpb.Post.prototype.getEmail = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.postpb.Post} returns this
- */
-proto.postpb.Post.prototype.setEmail = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * optional int64 age = 3;
- * @return {number}
- */
-proto.postpb.Post.prototype.getAge = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.postpb.Post} returns this
- */
-proto.postpb.Post.prototype.setAge = function(value) {
-  return jspb.Message.setProto3IntField(this, 3, value);
-};
-
-
-/**
- * optional int64 type = 4;
+ * optional int64 type = 2;
  * @return {number}
  */
 proto.postpb.Post.prototype.getType = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
@@ -253,7 +217,43 @@ proto.postpb.Post.prototype.getType = function() {
  * @return {!proto.postpb.Post} returns this
  */
 proto.postpb.Post.prototype.setType = function(value) {
-  return jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
+};
+
+
+/**
+ * optional int64 user_name = 3;
+ * @return {number}
+ */
+proto.postpb.Post.prototype.getUserName = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.postpb.Post} returns this
+ */
+proto.postpb.Post.prototype.setUserName = function(value) {
+  return jspb.Message.setProto3IntField(this, 3, value);
+};
+
+
+/**
+ * optional string title = 4;
+ * @return {string}
+ */
+proto.postpb.Post.prototype.getTitle = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.postpb.Post} returns this
+ */
+proto.postpb.Post.prototype.setTitle = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
