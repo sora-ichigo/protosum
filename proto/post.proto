@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package postpb;
+
+option go_package = "post/;postpb";
+option ruby_package = "Proto::PostPb";
+
+message Post {
+  string name  = 1;
+  string email  = 2;
+  int64  age   = 3;
+  int64  type   = 4;
+}
