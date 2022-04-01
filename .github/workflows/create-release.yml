@@ -11,7 +11,7 @@ jobs:
   auto-release:
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN}}
       RELEASE_IT_VERSION: 14.13.1
     steps:
       - name: Check out codes
