@@ -1,7 +1,7 @@
 .PHONY: protogen
 protogen: setup
 	# generate ruby code.
-	grpc_tools_ruby_protoc \
+	bundle exec grpc_tools_ruby_protoc \
 		--ruby_out=ruby/lib \
 		--grpc_out=ruby/lib \
 		-I ./proto \
