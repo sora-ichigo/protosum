@@ -19,7 +19,7 @@ jobs:
       - run: export PATH="./bin:$PATH"
       - name: install dependencies
         run: |
-          sudo apt-get update && sudo apt-get install -y protobuf-compiler=3.6.1.3-2ubuntu5 &&
+          sudo apt-get update && sudo apt-get install -y protobuf-compiler=3.6.1.3-2ubuntu5
       - name: generate code from proto
         run: make protogen
       - name: create pr of generate code
