@@ -8,7 +8,6 @@ protogen: setup
 		proto/**/*.proto
 	# generate go code.
 	protoc \
-		--ruby_out=ruby/lib \
 		--go_out=./go/lib \
 		--go-grpc_out=./go/lib \
 		-I ./proto \
