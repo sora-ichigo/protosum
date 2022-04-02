@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package feature.featureApiPb;
+
+option go_package = "feature/feature_api/;featureApiPb";
+option ruby_package = "Proto::Feature::FeatureApiPb";
+
+service FeatureService {
+  rpc GetFeature(Point) returns (Feature) {};
+}
+
+message Point {
+  int32 latitude = 1;
+  int32 longitude = 2;
+}
+
+message Feature {
+  int32 latitude = 1;
+  int32 longitude = 2;
+}
