@@ -1,5 +1,5 @@
 .PHONY: protogen
-protogen: setup
+protogen: clean setup 
 	# generate ruby code.
 	bundle exec grpc_tools_ruby_protoc \
 		--ruby_out=ruby/lib \
@@ -27,3 +27,9 @@ setup:
 	go generate ./tools.go
 	bundle install
 	npm install
+
+.PHONY: clean
+clean:
+	rm -rf ruby/lib/*
+	rm -rf go/lib/*
+	rm -rf nodejs/lib/*
