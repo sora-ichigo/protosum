@@ -4,17 +4,23 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "feature.featureApiPb.Point" do
-    optional :latitude, :int32, 1
-    optional :longitude, :int32, 2
-  end
-  add_message "feature.featureApiPb.Feature" do
-    optional :latitude, :int32, 1
-    optional :longitude, :int32, 2
+  add_file("feature/feature_api.proto", :syntax => :proto3) do
+    add_message "feature.featureApiPb.Point" do
+      optional :latitude, :int32, 1
+      optional :longitude, :int32, 2
+    end
+    add_message "feature.featureApiPb.Feature" do
+      optional :latitude, :int32, 1
+      optional :longitude, :int32, 2
+    end
   end
 end
 
-module Proto::Feature::FeatureApiPb
-  Point = Google::Protobuf::DescriptorPool.generated_pool.lookup("feature.featureApiPb.Point").msgclass
-  Feature = Google::Protobuf::DescriptorPool.generated_pool.lookup("feature.featureApiPb.Feature").msgclass
+module Proto
+  module Feature
+    module FeatureApiPb
+      Point = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("feature.featureApiPb.Point").msgclass
+      Feature = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("feature.featureApiPb.Feature").msgclass
+    end
+  end
 end
