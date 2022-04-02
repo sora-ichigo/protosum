@@ -1,3 +1,7 @@
 /pkg
 /tmp
 /node_modules
+/bin
+/gobin
+/vendor
+/.bundle
