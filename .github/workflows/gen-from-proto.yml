@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-go@v2
         with:
           go-version: ^1.18.0
-      - run: echo "./bin" >> $GITHUB_PATH
+      - run: echo "./gobin" >> $GITHUB_PATH
       - name: install dependencies
         run: |
           sudo apt-get update && sudo apt-get install -y protobuf-compiler=3.6.1.3-2ubuntu5
