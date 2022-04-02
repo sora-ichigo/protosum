@@ -24,6 +24,6 @@ protogen: setup
 
 .PHONY: setup
 setup:
-	go generate ./tools.go
+	go generate ./tools.go -mod=readonly
 	bundle install
 	npm install
