@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/igsr5hoge/version"
+require_relative "lib/protosum2/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "igsr5hoge"
-  spec.version = Igsr5hoge::VERSION
+  spec.name = "protosum2"
+  spec.version = Protosum2::VERSION
   spec.authors = ["igsr5"]
   spec.email = ["i@gsr5.dev"]
 

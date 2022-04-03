@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "igsr5hoge/version"
+require_relative "protosum2/version"
 
-module Igsr5hoge
+module Protosum2
   class Error < StandardError; end
   # Your code goes here...
-
-  def hello
-    p "hello"
-  end
 end
