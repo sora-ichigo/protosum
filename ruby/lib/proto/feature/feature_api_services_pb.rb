@@ -14,7 +14,7 @@ module ProtoSum
 
           self.marshal_class_method = :encode
           self.unmarshal_class_method = :decode
-          self.service_name = 'feature.featureApiPb.FeatureService'
+          self.service_name = 'feature.feature_api_pb.FeatureService'
 
           rpc :GetFeature, ::ProtoSum::Feature::FeatureApiPb::Point, ::ProtoSum::Feature::FeatureApiPb::Feature
         end

@@ -1,4 +1,4 @@
-// package: feature.featureApiPb
+// package: feature.feature_api_pb
 // file: feature/feature_api.proto
 
 /* tslint:disable */
@@ -30,10 +30,8 @@ export namespace Point {
 }
 
 export class Feature extends jspb.Message { 
-    getLatitude(): number;
-    setLatitude(value: number): Feature;
-    getLongitude(): number;
-    setLongitude(value: number): Feature;
+    getCode(): number;
+    setCode(value: number): Feature;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Feature.AsObject;
@@ -47,7 +45,6 @@ export class Feature extends jspb.Message {
 
 export namespace Feature {
     export type AsObject = {
-        latitude: number,
-        longitude: number,
+        code: number,
     }
 }

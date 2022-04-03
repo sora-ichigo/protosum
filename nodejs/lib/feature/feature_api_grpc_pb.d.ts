@@ -1,4 +1,4 @@
-// package: feature.featureApiPb
+// package: feature.feature_api_pb
 // file: feature/feature_api.proto
 
 /* tslint:disable */
@@ -12,7 +12,7 @@ interface IFeatureServiceService extends grpc.ServiceDefinition<grpc.UntypedServ
 }
 
 interface IFeatureServiceService_IGetFeature extends grpc.MethodDefinition<feature_feature_api_pb.Point, feature_feature_api_pb.Feature> {
-    path: "/feature.featureApiPb.FeatureService/GetFeature";
+    path: "/feature.feature_api_pb.FeatureService/GetFeature";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<feature_feature_api_pb.Point>;
