@@ -9,8 +9,6 @@ import * as jspb from "google-protobuf";
 export class Point extends jspb.Message { 
     getLatitude(): number;
     setLatitude(value: number): Point;
-    getLongitude(): number;
-    setLongitude(value: number): Point;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Point.AsObject;
@@ -25,7 +23,6 @@ export class Point extends jspb.Message {
 export namespace Point {
     export type AsObject = {
         latitude: number,
-        longitude: number,
     }
 }
 
