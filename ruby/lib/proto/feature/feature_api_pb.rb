@@ -15,7 +15,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
 end
 
-module ProtoSum
+module Protosum
   module Feature
     module FeatureApiPb
       Point = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("feature.feature_api_pb.Point").msgclass
