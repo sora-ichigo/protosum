@@ -91,8 +91,7 @@ proto.feature.feature_api_pb.Point.prototype.toObject = function(opt_includeInst
  */
 proto.feature.feature_api_pb.Point.toObject = function(includeInstance, msg) {
   var f, obj = {
-    latitude: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    longitude: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    latitude: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -133,10 +132,6 @@ proto.feature.feature_api_pb.Point.deserializeBinaryFromReader = function(msg, r
       var value = /** @type {number} */ (reader.readInt32());
       msg.setLatitude(value);
       break;
-    case 2:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setLongitude(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -173,13 +168,6 @@ proto.feature.feature_api_pb.Point.serializeBinaryToWriter = function(message, w
       f
     );
   }
-  f = message.getLongitude();
-  if (f !== 0) {
-    writer.writeInt32(
-      2,
-      f
-    );
-  }
 };
 
 
@@ -198,24 +186,6 @@ proto.feature.feature_api_pb.Point.prototype.getLatitude = function() {
  */
 proto.feature.feature_api_pb.Point.prototype.setLatitude = function(value) {
   return jspb.Message.setProto3IntField(this, 1, value);
-};
-
-
-/**
- * optional int32 longitude = 2;
- * @return {number}
- */
-proto.feature.feature_api_pb.Point.prototype.getLongitude = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.feature.feature_api_pb.Point} returns this
- */
-proto.feature.feature_api_pb.Point.prototype.setLongitude = function(value) {
-  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
