@@ -2,8 +2,8 @@
 protogen: clean setup 
 	# generate ruby code.
 	bundle exec grpc_tools_ruby_protoc \
-		--ruby_out=ruby/lib \
-		--grpc_out=ruby/lib \
+		--ruby_out=ruby/lib/proto \
+		--grpc_out=ruby/lib/proto \
 		-I ./proto \
 		proto/**/*.proto
 	# generate go code.
@@ -30,6 +30,6 @@ setup:
 
 .PHONY: clean
 clean:
-	rm -rf ruby/lib/*
+	rm -rf ruby/lib/proto/*
 	rm -rf go/lib/*
 	rm -rf nodejs/lib/*
