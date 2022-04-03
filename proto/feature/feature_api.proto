@@ -15,6 +15,5 @@ message Point {
 }
 
 message Feature {
-  int32 latitude = 1;
-  int32 longitude = 2;
+  int32 code = 1;
 }
