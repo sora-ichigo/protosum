@@ -48,6 +48,5 @@ setup:
 
 .PHONY: clean
 clean:
-	rm -rf ruby/lib/proto/*
 	rm -rf go/lib/*
 	rm -rf nodejs/lib/*
