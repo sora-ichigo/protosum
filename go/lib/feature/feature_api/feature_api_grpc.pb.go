@@ -35,7 +35,7 @@ func NewFeatureServiceClient(cc grpc.ClientConnInterface) FeatureServiceClient {
 
 func (c *featureServiceClient) GetFeature(ctx context.Context, in *Point, opts ...grpc.CallOption) (*Feature, error) {
 	out := new(Feature)
-	err := c.cc.Invoke(ctx, "/feature.feature_api_pb.FeatureService/GetFeature", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/feature.featureApiPb.FeatureService/GetFeature", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func _FeatureService_GetFeature_Handler(srv interface{}, ctx context.Context, de
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/feature.feature_api_pb.FeatureService/GetFeature",
+		FullMethod: "/feature.featureApiPb.FeatureService/GetFeature",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(FeatureServiceServer).GetFeature(ctx, req.(*Point))
@@ -92,7 +92,7 @@ func _FeatureService_GetFeature_Handler(srv interface{}, ctx context.Context, de
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var FeatureService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "feature.feature_api_pb.FeatureService",
+	ServiceName: "feature.featureApiPb.FeatureService",
 	HandlerType: (*FeatureServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

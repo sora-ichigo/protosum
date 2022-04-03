@@ -1,4 +1,4 @@
-// package: feature.feature_api_pb
+// package: feature.featureApiPb
 // file: feature/feature_api.proto
 
 /* tslint:disable */
