@@ -5,12 +5,12 @@ protogen: clean setup
 		--ruby_out=ruby2/lib/gen \
 		--grpc_out=ruby2/lib/gen \
 		-I proto \
-		$(cd lib && find . -name '*.proto')
+		$(cd proto && find . -name '*.proto')
 	bundle exec grpc_tools_ruby_protoc \
 		--ruby_out=ruby2/lib/gen \
 		--grpc_out=ruby2/lib/gen \
 		-I proto \
-		$(cd lib && find . -name '*.proto')
+		$(cd proto && find . -name '*.proto')
 	# generate go code.
 	protoc \
 		--go_out=./go/lib \
