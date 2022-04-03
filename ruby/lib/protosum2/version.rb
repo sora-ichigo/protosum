@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module Protosum2
-  VERSION = "0.7.0"
+  VERSION = "0.9.14"
 end
