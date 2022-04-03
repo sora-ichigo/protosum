@@ -6,7 +6,6 @@ protogen: clean setup
 	bundle exec grpc_tools_ruby_protoc \
 		--ruby_out=ruby2/lib/gen \
 		--grpc_out=ruby2/lib/gen \
-		-I proto \
 		${PROTO_FILE}
 	# generate go code.
 	protoc \
