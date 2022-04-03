@@ -15,7 +15,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   end
 end
 
-module Proto
+module Protosum
   module PostPb
     Post = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("postpb.Post").msgclass
   end
