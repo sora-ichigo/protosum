@@ -4,8 +4,8 @@ PROTO_FILE=$(shell find ./proto -name '*.proto')
 protogen: clean setup 
 	# generate ruby code.
 	bundle exec grpc_tools_ruby_protoc \
-		--ruby_out=ruby2/lib \
-		--grpc_out=ruby2/lib \
+		--ruby_out=ruby/lib \
+		--grpc_out=ruby/lib \
 		${PROTO_FILE}
 	# generate go code.
 	protoc \
