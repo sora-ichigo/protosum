@@ -4,40 +4,40 @@
 var grpc = require('@grpc/grpc-js');
 var feature_feature_api_pb = require('../feature/feature_api_pb.js');
 
-function serialize_feature_featureApiPb_Feature(arg) {
+function serialize_feature_feature_api_pb_Feature(arg) {
   if (!(arg instanceof feature_feature_api_pb.Feature)) {
-    throw new Error('Expected argument of type feature.featureApiPb.Feature');
+    throw new Error('Expected argument of type feature.feature_api_pb.Feature');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_feature_featureApiPb_Feature(buffer_arg) {
+function deserialize_feature_feature_api_pb_Feature(buffer_arg) {
   return feature_feature_api_pb.Feature.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_feature_featureApiPb_Point(arg) {
+function serialize_feature_feature_api_pb_Point(arg) {
   if (!(arg instanceof feature_feature_api_pb.Point)) {
-    throw new Error('Expected argument of type feature.featureApiPb.Point');
+    throw new Error('Expected argument of type feature.feature_api_pb.Point');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_feature_featureApiPb_Point(buffer_arg) {
+function deserialize_feature_feature_api_pb_Point(buffer_arg) {
   return feature_feature_api_pb.Point.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 
 var FeatureServiceService = exports.FeatureServiceService = {
   getFeature: {
-    path: '/feature.featureApiPb.FeatureService/GetFeature',
+    path: '/feature.feature_api_pb.FeatureService/GetFeature',
     requestStream: false,
     responseStream: false,
     requestType: feature_feature_api_pb.Point,
     responseType: feature_feature_api_pb.Feature,
-    requestSerialize: serialize_feature_featureApiPb_Point,
-    requestDeserialize: deserialize_feature_featureApiPb_Point,
-    responseSerialize: serialize_feature_featureApiPb_Feature,
-    responseDeserialize: deserialize_feature_featureApiPb_Feature,
+    requestSerialize: serialize_feature_feature_api_pb_Point,
+    requestDeserialize: deserialize_feature_feature_api_pb_Point,
+    responseSerialize: serialize_feature_feature_api_pb_Feature,
+    responseDeserialize: deserialize_feature_feature_api_pb_Feature,
   },
 };
 
