@@ -3,7 +3,7 @@ syntax = "proto3";
 package postpb;
 
 option go_package = "post/;postpb";
-option ruby_package = "Proto::PostPb";
+option ruby_package = "Protosum::PostPb";
 
 message Post {
   string name  = 1;

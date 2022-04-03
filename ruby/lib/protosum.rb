@@ -1,4 +1,4 @@
-require "proto/version"
+require "version"
 
 Dir.glob("#{__dir__}/**/*_pb.rb").each {|file| require file}
 

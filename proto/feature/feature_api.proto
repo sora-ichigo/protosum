@@ -3,7 +3,7 @@ syntax = "proto3";
 package feature.feature_api_pb;
 
 option go_package = "feature/feature_api/;featureApiPb";
-option ruby_package = "ProtoSum::Feature::FeatureApiPb";
+option ruby_package = "Protosum::Feature::FeatureApiPb";
 
 service FeatureService {
   rpc GetFeature(Point) returns (Feature) {};
