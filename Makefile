@@ -2,13 +2,13 @@
 protogen: clean setup 
 	# generate ruby code.
 	bundle exec grpc_tools_ruby_protoc \
-		--ruby_out=ruby/lib/proto \
-		--grpc_out=ruby/lib/proto \
+		--ruby_out=protosum2/lib/gen \
+		--grpc_out=protosum2/lib/gen \
 		-I ./proto \
 		proto/**/*.proto
 	bundle exec grpc_tools_ruby_protoc \
-		--ruby_out=ruby/lib/proto \
-		--grpc_out=ruby/lib/proto \
+		--ruby_out=protosum2/lib/gen \
+		--grpc_out=protosum2/lib/gen \
 		-I ./proto \
 		proto/*.proto
 	# generate go code.
