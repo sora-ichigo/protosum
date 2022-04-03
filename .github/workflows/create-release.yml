@@ -6,7 +6,7 @@ on:
     paths:
       - 'nodejs/lib/**'
       - 'go/lib/**'
-      - 'ruby/lib/proto/**'
+      - 'ruby/lib/**'
 jobs:
   auto-release:
     runs-on: ubuntu-latest
