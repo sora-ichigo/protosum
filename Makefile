@@ -21,7 +21,7 @@ protogen: clean setup
 		--grpc-gateway_out=./go/lib \
 		-I ${GRPC_GATEWAY_PATH}/ \
 		-I ${GOOGLEAPIS_PATH} \
-		-I ./proto \
+		-I . \
 		${PROTO_FILE}
 	# generate nodejs
 	npx grpc_tools_node_protoc \
@@ -32,7 +32,7 @@ protogen: clean setup
 		--ts_out=grpc_js:nodejs/lib \
 		-I ${GRPC_GATEWAY_PATH}/ \
 		-I ${GOOGLEAPIS_PATH} \
-		-I ./proto \
+		-I . \
 		${PROTO_FILE}
 
 
