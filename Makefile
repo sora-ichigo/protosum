@@ -1,7 +1,7 @@
 
 PROTO_FILE=$(shell find ./proto -name '*.proto')
 GRPC_GATEWAY_PATH="${PWD}/vendor/github.com/grpc-ecosystem/grpc-gateway"
-GOOGLEAPIS_PATH="${PWD}/plugins/googleapis/googleapis"
+GOOGLEAPIS_PATH="${PWD}/plugins/googleapis"
 
 .PHONY: protogen
 protogen: clean setup 
