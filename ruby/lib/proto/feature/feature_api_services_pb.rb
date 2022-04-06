@@ -17,6 +17,7 @@ module Protosum
           self.service_name = 'feature.feature_api_pb.FeatureService'
 
           rpc :GetFeature, ::Protosum::Feature::FeatureApiPb::Point, ::Protosum::Feature::FeatureApiPb::Feature
+          rpc :GetFeatures, ::Protosum::Feature::FeatureApiPb::Point, ::Protosum::Feature::FeatureApiPb::Feature
         end
 
         Stub = Service.rpc_stub_class
