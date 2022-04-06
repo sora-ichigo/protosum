@@ -17,7 +17,7 @@ protogen: clean setup
 		--go_out=./go/lib \
 		--go-grpc_out=./go/lib \
 		--grpc-gateway_out=./go/lib \
-		-I . \
+		-I ./proto \
 		${PROTO_FILE}
 	# generate nodejs
 	npx grpc_tools_node_protoc \
@@ -26,7 +26,7 @@ protogen: clean setup
 		--grpc_out=grpc_js:nodejs/lib \
 		--grpc-gateway_out=./go/lib \
 		--ts_out=grpc_js:nodejs/lib \
-		-I . \
+		-I ./proto \
 		${PROTO_FILE}
 
 
