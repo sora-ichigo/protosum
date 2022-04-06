@@ -1,4 +1,4 @@
-// source: feature/feature_api.proto
+// source: proto/feature/feature_api.proto
 /**
  * @fileoverview
  * @enhanceable

@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.6.1
-// source: feature/feature_api.proto
+// source: proto/feature/feature_api.proto
 
 package featureApiPb
 
@@ -101,5 +101,5 @@ var FeatureService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "feature/feature_api.proto",
+	Metadata: "proto/feature/feature_api.proto",
 }
