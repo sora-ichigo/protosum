@@ -10,14 +10,18 @@ protogen: clean setup
 		--ruby_out=ruby/lib \
 		--grpc_out=ruby/lib \
 		--grpc-gateway_out=./go/lib \
-		-I . \
+		-I ${GRPC_GATEWAY_PATH}/ \
+		-I ${GRPC_GATEWAY_PATH}/third_party/googleapis \
+		-I ${GOOGLEAPIS_PATH} \
 		${PROTO_FILE}
 	# generate go code.
 	protoc \
 		--go_out=./go/lib \
 		--go-grpc_out=./go/lib \
 		--grpc-gateway_out=./go/lib \
-		-I ./proto \
+		-I ${GRPC_GATEWAY_PATH}/ \
+		-I ${GRPC_GATEWAY_PATH}/third_party/googleapis \
+		-I ${GOOGLEAPIS_PATH} \
 		${PROTO_FILE}
 	# generate nodejs
 	npx grpc_tools_node_protoc \
@@ -26,7 +30,9 @@ protogen: clean setup
 		--grpc_out=grpc_js:nodejs/lib \
 		--grpc-gateway_out=./go/lib \
 		--ts_out=grpc_js:nodejs/lib \
-		-I ./proto \
+		-I ${GRPC_GATEWAY_PATH}/ \
+		-I ${GRPC_GATEWAY_PATH}/third_party/googleapis \
+		-I ${GOOGLEAPIS_PATH} \
 		${PROTO_FILE}
 
 
