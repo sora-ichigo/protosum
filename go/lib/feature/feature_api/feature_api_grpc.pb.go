@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.6.1
-// source: feature/feature_api.proto
+// source: proto/feature/feature_api.proto
 
 package featureApiPb
 
@@ -23,6 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type FeatureServiceClient interface {
 	GetFeature(ctx context.Context, in *Point, opts ...grpc.CallOption) (*Feature, error)
+	GetFeatures(ctx context.Context, in *Point, opts ...grpc.CallOption) (*Feature, error)
 }
 
 type featureServiceClient struct {
@@ -42,11 +43,21 @@ func (c *featureServiceClient) GetFeature(ctx context.Context, in *Point, opts .
 	return out, nil
 }
 
+func (c *featureServiceClient) GetFeatures(ctx context.Context, in *Point, opts ...grpc.CallOption) (*Feature, error) {
+	out := new(Feature)
+	err := c.cc.Invoke(ctx, "/feature.feature_api_pb.FeatureService/GetFeatures", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FeatureServiceServer is the server API for FeatureService service.
 // All implementations must embed UnimplementedFeatureServiceServer
 // for forward compatibility
 type FeatureServiceServer interface {
 	GetFeature(context.Context, *Point) (*Feature, error)
+	GetFeatures(context.Context, *Point) (*Feature, error)
 	mustEmbedUnimplementedFeatureServiceServer()
 }
 
@@ -56,6 +67,9 @@ type UnimplementedFeatureServiceServer struct {
 
 func (UnimplementedFeatureServiceServer) GetFeature(context.Context, *Point) (*Feature, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFeature not implemented")
+}
+func (UnimplementedFeatureServiceServer) GetFeatures(context.Context, *Point) (*Feature, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetFeatures not implemented")
 }
 func (UnimplementedFeatureServiceServer) mustEmbedUnimplementedFeatureServiceServer() {}
 
@@ -88,6 +102,24 @@ func _FeatureService_GetFeature_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FeatureService_GetFeatures_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Point)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FeatureServiceServer).GetFeatures(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/feature.feature_api_pb.FeatureService/GetFeatures",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FeatureServiceServer).GetFeatures(ctx, req.(*Point))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FeatureService_ServiceDesc is the grpc.ServiceDesc for FeatureService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -99,7 +131,11 @@ var FeatureService_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "GetFeature",
 			Handler:    _FeatureService_GetFeature_Handler,
 		},
+		{
+			MethodName: "GetFeatures",
+			Handler:    _FeatureService_GetFeatures_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "feature/feature_api.proto",
+	Metadata: "proto/feature/feature_api.proto",
 }
