@@ -1,7 +1,7 @@
 
 PROTO_FILE=$(shell find ./proto -name '*.proto')
 GRPC_GATEWAY_PATH="${PWD}/vendor/github.com/grpc-ecosystem/grpc-gateway"
-GOOGLEAPIS_PATH="${PWD}/vendor/github.com/googleapis/googleapis"
+GOOGLEAPIS_PATH="${PWD}/plugins/googleapis/googleapis"
 
 .PHONY: protogen
 protogen: clean setup 
@@ -10,8 +10,7 @@ protogen: clean setup
 		--ruby_out=ruby/lib \
 		--grpc_out=ruby/lib \
 		--grpc-gateway_out=./go/lib \
-		-I ${GRPC_GATEWAY_PATH}/ \
-		-I ${GRPC_GATEWAY_PATH}/third_party/googleapis \
+		-I ${GRPC_GATEWAY_PATH} \
 		-I ${GOOGLEAPIS_PATH} \
 		${PROTO_FILE}
 	# generate go code.
@@ -20,7 +19,6 @@ protogen: clean setup
 		--go-grpc_out=./go/lib \
 		--grpc-gateway_out=./go/lib \
 		-I ${GRPC_GATEWAY_PATH}/ \
-		-I ${GRPC_GATEWAY_PATH}/third_party/googleapis \
 		-I ${GOOGLEAPIS_PATH} \
 		${PROTO_FILE}
 	# generate nodejs
@@ -31,7 +29,6 @@ protogen: clean setup
 		--grpc-gateway_out=./go/lib \
 		--ts_out=grpc_js:nodejs/lib \
 		-I ${GRPC_GATEWAY_PATH}/ \
-		-I ${GRPC_GATEWAY_PATH}/third_party/googleapis \
 		-I ${GOOGLEAPIS_PATH} \
 		${PROTO_FILE}
 
