@@ -71,8 +71,7 @@ proto.postpb.Post.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     type: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    userName: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    title: jspb.Message.getFieldWithDefault(msg, 4, "")
+    userName: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -121,10 +120,6 @@ proto.postpb.Post.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {number} */ (reader.readInt64());
       msg.setUserName(value);
       break;
-    case 4:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setTitle(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -172,13 +167,6 @@ proto.postpb.Post.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt64(
       3,
-      f
-    );
-  }
-  f = message.getTitle();
-  if (f.length > 0) {
-    writer.writeString(
-      4,
       f
     );
   }
@@ -236,24 +224,6 @@ proto.postpb.Post.prototype.getUserName = function() {
  */
 proto.postpb.Post.prototype.setUserName = function(value) {
   return jspb.Message.setProto3IntField(this, 3, value);
-};
-
-
-/**
- * optional string title = 4;
- * @return {string}
- */
-proto.postpb.Post.prototype.getTitle = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.postpb.Post} returns this
- */
-proto.postpb.Post.prototype.setTitle = function(value) {
-  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
