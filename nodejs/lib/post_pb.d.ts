@@ -1,5 +1,5 @@
 // package: postpb
-// file: proto/post.proto
+// file: post.proto
 
 /* tslint:disable */
 /* eslint-disable */
