@@ -1,5 +1,5 @@
 // package: feature.feature_api_pb
-// file: proto/feature/feature_api.proto
+// file: feature/feature_api.proto
 
 /* tslint:disable */
 /* eslint-disable */

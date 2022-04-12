@@ -1,4 +1,4 @@
-// source: proto/feature/feature_api.proto
+// source: feature/feature_api.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -15,7 +15,7 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var google_api_annotations_pb = require('../../google/api/annotations_pb.js');
+var google_api_annotations_pb = require('../google/api/annotations_pb.js');
 goog.object.extend(proto, google_api_annotations_pb);
 goog.exportSymbol('proto.feature.feature_api_pb.Feature', null, global);
 goog.exportSymbol('proto.feature.feature_api_pb.Point', null, global);
