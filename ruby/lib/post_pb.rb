@@ -9,7 +9,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :name, :string, 1
       optional :type, :int64, 2
       optional :user_name, :int64, 3
-      optional :title, :string, 4
     end
   end
 end

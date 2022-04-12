@@ -13,8 +13,6 @@ export class Post extends jspb.Message {
     setType(value: number): Post;
     getUserName(): number;
     setUserName(value: number): Post;
-    getTitle(): string;
-    setTitle(value: string): Post;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): Post.AsObject;
@@ -31,6 +29,5 @@ export namespace Post {
         name: string,
         type: number,
         userName: number,
-        title: string,
     }
 }
