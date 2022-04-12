@@ -12,7 +12,7 @@ protogen: clean setup
 		--grpc-gateway_out=./go/lib \
 		-I ${GRPC_GATEWAY_PATH} \
 		-I ${GOOGLEAPIS_PATH} \
-		-I . \
+		-I ./proto \
 		${PROTO_FILE}
 	# generate go code.
 	protoc \
