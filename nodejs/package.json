@@ -19,5 +19,16 @@
   "bugs": {
     "url": "https://github.com/igsr5/protosum/issues"
   },
-  "homepage": "https://github.com/igsr5/protosum#readme"
+  "homepage": "https://github.com/igsr5/protosum#readme",
+    "dependencies": {
+    "grpc": "^1.24.3"
+  },
+  "devDependencies": {
+    "google-protobuf": "^3.14.0",
+    "grpc-tools": "^1.10.0",
+    "grpc_tools_node_protoc_ts": "^4.0.0"
+  },
+  "peerDependencies": {
+    "google-protobuf": "^3.14.0"
+  }
 }
