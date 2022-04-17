@@ -1,5 +1,11 @@
 # Protosum
 
+[![Generate code from proto](https://github.com/igsr5/protosum/actions/workflows/gen-from-proto.yml/badge.svg)](https://github.com/igsr5/protosum/actions/workflows/gen-from-proto.yml)
+[![Lint Code Base](https://github.com/igsr5/protosum/actions/workflows/linter.yml/badge.svg)](https://github.com/igsr5/protosum/actions/workflows/linter.yml)
+[![auto release demo](https://github.com/igsr5/protosum/actions/workflows/create-release.yml/badge.svg)](https://github.com/igsr5/protosum/actions/workflows/create-release.yml)
+[![gem release](https://github.com/igsr5/protosum/actions/workflows/gem-release.yml/badge.svg)](https://github.com/igsr5/protosum/actions/workflows/gem-release.yml)
+[![npm release](https://github.com/igsr5/protosum/actions/workflows/npm-release.yml/badge.svg)](https://github.com/igsr5/protosum/actions/workflows/npm-release.yml)
+
 GitHub Action x Proto Buffer で奇跡のスキーマ体験を開発する試みです
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/protosum`. To experiment with that code, run `bin/console` for an interactive prompt.
