@@ -6,7 +6,7 @@
 [![gem release](https://github.com/igsr5/protosum/actions/workflows/gem-release.yml/badge.svg)](https://github.com/igsr5/protosum/actions/workflows/gem-release.yml)
 [![npm release](https://github.com/igsr5/protosum/actions/workflows/npm-release.yml/badge.svg)](https://github.com/igsr5/protosum/actions/workflows/npm-release.yml)
 
-GitHub Action x Proto Buffer で奇跡のスキーマ体験を開発する試みです
+GitHub Action x Protocol Buffers で奇跡のスキーマ体験を開発する試みです
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/protosum`. To experiment with that code, run `bin/console` for an interactive prompt.
 
